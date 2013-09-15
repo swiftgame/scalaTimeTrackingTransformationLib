@@ -4,19 +4,21 @@ import gnotimetoscala.model._
 
 
 object read_xml {
+  
+  def clearScope(x: Node):Node = x match {
+  case e:Elem => e.copy(scope=TopScope, child = e.child.map(clearScope))
+  case o => o
+}
+
    // main purely for test
   def main(args: Array[String])
-  {  val myXML = <a><b>My Text</b></a>
-myXML match {
-    case <a><b>{theText}</b></a> => println(theText);
-    case _ =>
-}    
+  {  
    
   val gnotimeXmlPathname = scala.io.Source.fromFile("/home/koen/Dropbox/GnotimeScala/gnotimetoscala/test/example1.xml").mkString
       val gnotimeXml = XML.loadString(gnotimeXmlPathname)
       
      // println(gnotimeXml \ "gtt:project-list" \ "@{file:/usr/share/gnotime/gtt.dtd}");
-      transformXmlGnotimeToScalaModel(gnotimeXml) 
+      transformXmlGnotimeToScalaModel(clearScope(gnotimeXml)) 
       
 
 
@@ -31,24 +33,33 @@ myXML match {
       {  //case Elem(asdf,blaat,test23,blaats,test,projectListAtTopLevel) => { println(asdf + blaat + test23 + blaats + test);transformProjectlist(test)  }
        //  case elem: Elem => println(")
       // case node \ "title" => { println(test);transformProjectlist(test)  }
-       case xml.Elem("gtt", "gtt", _, _,_,test,_*) => 
-        { 
-         // println("test= " + test)
-          test.map{x=>
-            println((x \\ "title").text)
-           
-           
-         println( Project((x \\ "title").text,(x \\ "id").text))
-         /* x match {
-            case xml.Elem("gtt", _, _, _,_,blaat,_*) =>
-          println(blaat)
-        } */
-          }
-        
-      }
+       case xml.Elem("gtt", "gtt", _, _,_,test,_) => test match {
+            case <gtt:project-list>{children @ _*}</gtt:project-list> => stripList(children(3))
+          } 
          case _ => println("fails");
+           
+       
+
       }
    }
+  
+  def stripList(ls: Seq[Node]) =
+  {
+    println("stripList called");
+  //  println(ls);
+   ls match
+   {
+    // case   => println(myTitle)
+     case xml.Elem("gtt", "project", _, _,_,Elem("title",_,_,_,_,test),_*) => println(test)//stripList(tail); //Hmm, need some changes here
+//case <gtt:project><title>{theText}</title></gtt:project> => println(theText)    
+// case head::tail => println(ls.tail.head);stripList(ls.tail.head)
+     case _ => println("laatse");
+      
+      
+   }
+    
+  }
+  
 /*
    def transformProjectlist(node: NodeSeq) =
    {  println("transformProjectlist called")
