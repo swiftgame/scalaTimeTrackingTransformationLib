@@ -77,6 +77,50 @@
             </gtt:interval>
           </gtt:interval-list>
         </gtt:task>
+         <gtt:task>
+          <guid>800f327c8c1334e0ebdd6c1c03a5b5c4</guid>
+          <memo>taak1_vantest2</memo>
+          <bill_unit>900</bill_unit>
+          <billable>BILLABLE</billable>
+          <billrate>REGULAR</billrate>
+          <billstatus>BILL</billstatus>
+          <gtt:interval-list>
+            <gtt:interval>
+              <start>1347803932</start>
+              <stop>1347803932</stop>
+              <fuzz>0</fuzz>
+              <running>T</running>
+            </gtt:interval>
+            <gtt:interval>
+              <start>1347803932</start>
+              <stop>1347803932</stop>
+              <fuzz>0</fuzz>
+              <running>T</running>
+            </gtt:interval>
+            <gtt:interval>
+              <start>1347803932</start>
+              <stop>1347803932</stop>
+              <fuzz>0</fuzz>
+              <running>T</running>
+            </gtt:interval>
+          </gtt:interval-list>
+        </gtt:task>
+         <gtt:task>
+          <guid>800f327c8c1334e0ebdd6c1c03a5b5c4</guid>
+          <memo>taak1_vantest2</memo>
+          <bill_unit>900</bill_unit>
+          <billable>BILLABLE</billable>
+          <billrate>REGULAR</billrate>
+          <billstatus>BILL</billstatus>
+          <gtt:interval-list>
+            <gtt:interval>
+              <start>1347803932</start>
+              <stop>1347803932</stop>
+              <fuzz>0</fuzz>
+              <running>T</running>
+            </gtt:interval>
+          </gtt:interval-list>
+        </gtt:task>
       </gtt:task-list>
     </gtt:project>
   </gtt:project-list>
