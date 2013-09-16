@@ -86,20 +86,20 @@
           <billstatus>BILL</billstatus>
           <gtt:interval-list>
             <gtt:interval>
-              <start>1347803932</start>
-              <stop>1347803932</stop>
+              <start>134780322</start>
+              <stop>134780332</stop>
               <fuzz>0</fuzz>
               <running>T</running>
             </gtt:interval>
             <gtt:interval>
-              <start>1347803932</start>
-              <stop>1347803932</stop>
+              <start>13478432</start>
+              <stop>134780398</stop>
               <fuzz>0</fuzz>
               <running>T</running>
             </gtt:interval>
             <gtt:interval>
-              <start>1347803932</start>
-              <stop>1347803932</stop>
+              <start>13478033</start>
+              <stop>1347</stop>
               <fuzz>0</fuzz>
               <running>T</running>
             </gtt:interval>
@@ -114,8 +114,8 @@
           <billstatus>BILL</billstatus>
           <gtt:interval-list>
             <gtt:interval>
-              <start>1347803932</start>
-              <stop>1347803932</stop>
+              <start>1347813934</start>
+              <stop>134700397</stop>
               <fuzz>0</fuzz>
               <running>T</running>
             </gtt:interval>

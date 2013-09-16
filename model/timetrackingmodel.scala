@@ -7,9 +7,17 @@ object Types
 import Types._
 
 case class Project(  title:String, // in gnotime.xml: <title>
-                     id:String//, // in gnotime.xml: <id>
-                     //subprojects:List[Project], // in gnotime.xml: <project-list>
-                   //  timeIntervals:List[TimeInterval] // in gnotime.xml: <task-list> (not certain yet, better verify) list of time intervals on which this project was active tracked on TOP level (so excluding time intervals occupied by the subprojects).
+                     id:String, // in gnotime.xml: <id>
+                     tasks:List[TaskList] // in gnotime.xml: <project-list>
+                    
+                  )
+{
+}
+
+  case class TaskList(  guid:String, // in gnotime.xml: <title>
+                     memo:String, // in gnotime.xml: <id>
+                     
+                     timeIntervals2:List[TimeInterval] // in gnotime.xml: <task-list> (not certain yet, better verify) list of time intervals on which this project was active tracked on TOP level (so excluding time intervals occupied by the subprojects).
                   )
 {
 }
