@@ -34,7 +34,7 @@ object read_xml {
       //  case elem: Elem => println(")
       // case node \ "title" => { println(test);transformProjectlist(test)  }
       case xml.Elem("gtt", "gtt", _, _,_,test,_) => test match {
-        case <gtt:project-list>{children @ _*}</gtt:project-list> =>  stripList(children, 0)
+        case <gtt:project-list>{children @ _*}</gtt:project-list> =>  stripList(children)
       }
       case _ => Nil;
 
@@ -43,31 +43,32 @@ object read_xml {
     }
   }
 
-  def stripList(ls: Seq[Node], i:Int):List[Project] =
+  def stripList(ls: Seq[Node]):List[Project] =
   {
-    try
-    {
+
       // println(scala.xml.Utility.trim(ls(0)));
-      ls(i) match
+      ls match
       { /*
          case <title>{e @ _*}</title> =>
          println(e)
          */
         // case   => println(myTitle)
-        case xml.Elem("gtt", "project", _, _,_,test3 @ _ *) =>
+        case Seq(xml.Elem("gtt", "project", _, _,_,test3 @ _ *), xs@_*) =>
+
           List(Project((test3 \\ "title").text,(test3 \\ "desc").text,(test3 \\ "id").text,
             test3.toList.flatMap{ m=>
               m match{
-                case <gtt:task-list>{tasklist @ _ *}</gtt:task-list> => stripTimes(tasklist, 0)
+                case <gtt:task-list>{tasklist @ _ *}</gtt:task-list> => stripTimes(tasklist)
                 case _ => Nil
 
 
 
-              }})):::stripList(ls,i+1)
+              }})):::stripList(xs)
 
 
+        case Seq(x, xs@_*) =>  stripList(xs)
 
-        case _ => stripList(ls, i+1):::Nil
+        case Seq() => Nil
 
         //  print(test \\ "guid")//stripList(tail); //Hmm, need some changes here
         //case <gtt:project><title>{theText}</title></gtt:project> => println(theText)
@@ -75,49 +76,39 @@ object read_xml {
 
 
       }
-    }
-    catch {
-      case e: Exception => Nil
-    }
 
   }
 
-  def stripTimes(time_intervals: Seq[Node], i: Int):List[TaskList] =
+  def stripTimes(time_intervals: Seq[Node]):List[TaskList] =
   {
-    try {
 
-      time_intervals(i) match {
-        case xml.Elem("gtt", "task", _, _,_,test3 @ _ *) =>
+      time_intervals match {
+        case Seq(xml.Elem("gtt", "task", _, _,_,test3 @ _ *),xs@_*) =>
           List(TaskList((test3 \\ "memo").text,(test3 \\ "guid").text,
             test3.toList.flatMap{
               x=>
                 x match {
-                  case <gtt:interval-list>{start_time @ _ *}</gtt:interval-list> => getTimes(start_time,0)
+                  case <gtt:interval-list>{start_time @ _ *}</gtt:interval-list> => getTimes(start_time)
                   case _ => Nil
 
 
                 }
-            })):::stripTimes(time_intervals, i+1)
+            })):::stripTimes(xs)
+        case Seq(x, xs@_*) =>  stripTimes(xs)
 
-        case _ => stripTimes(time_intervals, i+1):::Nil
+        case Seq() => Nil
       }
-    }
-    catch {
-      case e: Exception => Nil
-    }
+
 
 
   }
 
 
-  def getTimes(latest: Seq[Node],i:Int):List[TimeInterval]=
+  def getTimes(latest: Seq[Node]):List[TimeInterval]=
   {
-
-    try {
-      // var i = 0
-      latest(i) match
+  latest match
       {
-        case  Elem("gtt", "interval", _, _,_,st @ _ *) => List(TimeInterval((st \\ "start").text.toLong,(st \\ "stop").text.toLong)):::getTimes(latest, i+1)
+    case Seq(Elem("gtt", "interval", _, _,_,st @ _ *),xs@_*) => List(TimeInterval((st \\ "start").text.toLong,(st \\ "stop").text.toLong)):::getTimes(xs)
         /* case <gtt:interval>{start_time}</gtt:interval> => println(start_time.child); start_time.map(x=> x match {
          case <start>{thetime}</start> => println(thetime)
          case <stop>{thetime}</stop> => println(thetime)
@@ -127,13 +118,11 @@ object read_xml {
 
         // case x :: xs =>  x::getTimes(xs)
         //case Nil =>  getTimes(latest, i+1):::Nil
-        case _ => getTimes(latest, i+1):::Nil
 
+        case Seq(x, xs@_*) =>  getTimes(xs)
+
+        case Seq() => Nil
       }
-    }
-    catch {
-      case e: Exception => Nil
-    }
 
 
   }
