@@ -14,7 +14,7 @@ object read_xml {
   def proc():List[Project] =
   {
 
-    val gnotimeXmlPathname = scala.io.Source.fromFile("/home/koen/Dropbox/GnotimeScala/GnotimeScala/GnoTimeScala/example1.xml").mkString
+    val gnotimeXmlPathname = scala.io.Source.fromFile("/home/koen/Dropbox/GnotimeScala/example1.xml").mkString
     val gnotimeXml = XML.loadString(gnotimeXmlPathname)
 
     // println(gnotimeXml \ "gtt:project-list" \ "@{file:/usr/share/gnotime/gtt.dtd}");
