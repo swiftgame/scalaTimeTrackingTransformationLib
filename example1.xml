@@ -139,5 +139,60 @@
         </gtt:task>
       </gtt:task-list>
     </gtt:project>
+      <gtt:project>
+          <title>test3</title>
+          <guid>83586bdce823dd97f0623980a8a6526</guid>
+          <desc>dit is test3</desc>
+          <id>2</id>
+          <billrate>10</billrate>
+          <overtime_rate>15</overtime_rate>
+          <overover_rate>20</overover_rate>
+          <flat_fee>1000</flat_fee>
+          <min_interval>3</min_interval>
+          <auto_merge_interval>60</auto_merge_interval>
+          <auto_merge_gap>60</auto_merge_gap>
+          <estimated_start>-1</estimated_start>
+          <estimated_end>-1</estimated_end>
+          <due_date>-1</due_date>
+          <sizing>0</sizing>
+          <percent_complete>0</percent_complete>
+          <urgency>UNDEFINED</urgency>
+          <importance>UNDEFINED</importance>
+          <status>NOT_STARTED</status>
+          <gtt:task-list>
+              <gtt:task>
+                  <guid>e8829822dbcb4d8934b5f940a241d26</guid>
+                  <memo>taak1_vantest3</memo>
+                  <bill_unit>900</bill_unit>
+                  <billable>BILLABLE</billable>
+                  <billrate>REGULAR</billrate>
+                  <billstatus>BILL</billstatus>
+                  <gtt:interval-list>
+                      <gtt:interval>
+                          <start>1347800870</start>
+                          <stop>1300803928</stop>
+                          <fuzz>0</fuzz>
+                          <running>F</running>
+                      </gtt:interval>
+                  </gtt:interval-list>
+              </gtt:task>
+              <gtt:task>
+                  <guid>e88298dbcb7e4d8934b5f96c410a226</guid>
+                  <memo>taak2_vantest3</memo>
+                  <bill_unit>900</bill_unit>
+                  <billable>BILLABLE</billable>
+                  <billrate>REGULAR</billrate>
+                  <billstatus>BILL</billstatus>
+                  <gtt:interval-list>
+                      <gtt:interval>
+                          <start>1347800870</start>
+                          <stop>1347800928</stop>
+                          <fuzz>0</fuzz>
+                          <running>F</running>
+                      </gtt:interval>
+                  </gtt:interval-list>
+              </gtt:task>
+          </gtt:task-list>
+      </gtt:project>
   </gtt:project-list>
 </gtt:gtt>
