@@ -10,5 +10,3 @@ Note that transformations are not always simply a matter of a (semantic preservi
 (so, a duration is expressed in n*hour, where n is an integer), while that of Taskjuggler is a second. The transformation from Gnotime to Taskjuggler can therefore not preserve the semantics, and some (partly adhoc) decisions have to be made  what and how information is thrown away. For this purpose, this library contains ready made functions.
 
 Anyone is invited to contribute to extend the library with new import and export modules to and from time tracking and planning tools.
-
-Main class: printDataModel.scala 
