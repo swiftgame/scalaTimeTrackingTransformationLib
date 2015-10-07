@@ -1,14 +1,14 @@
-package com.gnotime
+package org.scatitrali
 package snippet
 
 import scala.xml.{NodeSeq, Text}
 import net.liftweb.util._
 import net.liftweb.common._
 import java.util.Date
-import com.gnotime.lib._
+import org.scatitrali.lib._
 import Helpers._
 
-import com.scala.gnotime.read_xml
+import org.scatitrali.read_xml
 
 class Printing {
 

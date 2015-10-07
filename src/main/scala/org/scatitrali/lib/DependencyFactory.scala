@@ -1,4 +1,5 @@
-package com.gnotime
+package org.scatitrali
+
 package lib
 
 import net.liftweb._

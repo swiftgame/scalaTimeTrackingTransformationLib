@@ -1,6 +1,7 @@
-package com.scala.gnotime
+package org.scatitrali
+
 import scala.xml._
-import com.gnotime.model._
+import org.scatitrali.model._
 
 
 object read_xml {
@@ -12,16 +13,11 @@ object read_xml {
 
   // main purely for test
   def proc():List[Project] =
-  {
-
-    val gnotimeXmlPathname = scala.io.Source.fromFile("/home/koen/Dropbox/GnotimeScala/example1.xml").mkString
+  { val gnotimeXmlPathname = scala.io.Source.fromFile("/home/koen/Dropbox/GnotimeScala/example1.xml").mkString
     val gnotimeXml = XML.loadString(gnotimeXmlPathname)
 
     // println(gnotimeXml \ "gtt:project-list" \ "@{file:/usr/share/gnotime/gtt.dtd}");
     transformXmlGnotimeToScalaModel(clearScope(gnotimeXml))
-
-
-
   }
 
 

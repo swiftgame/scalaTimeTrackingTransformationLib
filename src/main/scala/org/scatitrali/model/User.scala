@@ -1,4 +1,4 @@
-package com.gnotime
+package org.scatatrali
 package model
 
 import net.liftweb.mapper._
