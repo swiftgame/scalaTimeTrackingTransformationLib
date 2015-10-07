@@ -1,4 +1,4 @@
-package org.scatitrali
+package org.scatitrali.import
 
 import scala.xml._
 import org.scatitrali.model._
