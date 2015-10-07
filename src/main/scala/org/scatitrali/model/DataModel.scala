@@ -14,7 +14,6 @@ case class Project(  title:String, // in gnotime.xml: <title>
                      projectDesc:String,
                      id:String, // in gnotime.xml: <id>
                      tasks:List[TaskList] // in gnotime.xml: <project-list>
-
                   )
 {
 }

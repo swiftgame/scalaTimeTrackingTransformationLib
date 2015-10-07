@@ -1,12 +1,7 @@
-package org.scatitrali
-package snippet
+package org.scatitrali.test
 
-import scala.xml.{NodeSeq, Text}
-import net.liftweb.util._
-import net.liftweb.common._
 import java.util.Date
 import org.scatitrali.lib._
-import Helpers._
 
 import org.scatitrali.read_xml
 
